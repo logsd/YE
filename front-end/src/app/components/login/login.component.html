@@ -1,0 +1,11 @@
+<div class="login">
+  <div class="login-triangle"></div>
+  
+  <h2 class="login-header">Log in</h2>
+
+  <form #formLogin="ngForm" (ngSubmit)="onLogin(formLogin)" class="login-container">
+    <p><input  name="email" ngModel required type="email" placeholder="Email"></p>
+    <p><input name="password"  ngModel required type="password" placeholder="Password"></p>
+    <p><input  type="submit" value="Send"></p>
+  </form>
+</div>
