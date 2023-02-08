@@ -14,7 +14,7 @@ import { Role } from './models/role';
 const routes: Routes = [
   {path: '',redirectTo:'login' , pathMatch: 'full'},
   {path: 'listas', component: ListsComponent, canActivate:[RolGuard]},
-  {path: 'dashboard', component: DashboardComponent, canActivate:[RolGuard]},
+  {path: 'dashboard', component: DashboardComponent},
   {path: 'yaviElec', component: VotosComponent, canActivate:[AuthGuard , VoteGuard]},
   {path: 'login', component :LoginComponent},
   {path: 'users', component :UsersComponent, /*canActivate:[RolGuard]*/},

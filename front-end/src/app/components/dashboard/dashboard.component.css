@@ -1,0 +1,54 @@
+#header {
+  background: url(https://yavirac.edu.ec/img/slider/instalacion2.png) ;
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  filter: grayscale(75%);
+
+}
+.bg-dark.navbar-dark .container {
+  display: flex;
+  justify-content: flex-end;
+}
+.lead{
+  width: 60vw;
+  opacity: 1;
+  color: white;
+  text-shadow: 2px 2px 2px black;
+  font-style: italic;
+  font-weight: 400;
+}
+.display-3{
+  color: white;
+  text-shadow: 2px 2px 2px black;
+  font-weight: 700;
+
+}
+.animt{
+  animation: mymove 2s 1;
+  animation-timing-function: ease-in;
+  position: relative;
+}
+.icon-nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon-nav i{
+  color: white;
+  padding: 1%;
+  font-size: 20px;
+}
+.container a{
+  opacity: 0;
+  margin-left: 5px;
+  transition: opacity 0.4s;
+}
+
+@keyframes mymove {
+  from {left: -300px; opacity: 0;}
+  to {left: 0px; opacity: 1;}
+}
