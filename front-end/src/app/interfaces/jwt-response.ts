@@ -5,6 +5,7 @@ export interface JwtResponseI {
         email: string,
         accessToken: string,
         expiresIn: string,
-        rol: string
+        rol: string,
+        estado:boolean,
     }
 }

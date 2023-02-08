@@ -13,7 +13,6 @@ export class RolService {
   rol() {
     const token: any = localStorage.getItem('ROL'); // get token from local storage
     if (!token) {
-      alert('Usted no tiene permiso');
     }
     /*
     const payload = atob(token.split('.')[1]); // decode payload of token

@@ -18,12 +18,12 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
     this.getUsers();
   }
-   
+
   addUser(form: NgForm){
     if(form.value._id){
       this.userService.putUser(form.value)
-        .subscribe(res =>{ 
-          
+        .subscribe(res =>{
+
           this.resetForm(form)
           Swal.fire({
             position: 'center',
@@ -60,7 +60,7 @@ export class UsersComponent implements OnInit {
       })
     }
   }
-  
+
   getUsers(){
     this.userService.getUsers()
       .subscribe(res => {

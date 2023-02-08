@@ -11,7 +11,7 @@
               <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Nombre Lista</label>
                   <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="listService.selectedList.nombre" class="form-control" >
-                  
+
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Descripcion Lista</label>
@@ -20,11 +20,11 @@
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Url Img</label>
                     <input type="text" name="foto" #foto="ngModel" [(ngModel)]="listService.selectedList.foto" class="form-control" >
-                    
+
                   </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Votos Lista</label>
-                  <input type="text" name="votos" #votos="ngModel" [(ngModel)]="listService.selectedList.votos" class="form-control"  >    
+                  <input type="text" name="votos" #votos="ngModel" [(ngModel)]="listService.selectedList.votos" class="form-control"  >
                 </div>
                 <div class="card-footer">
                   <button class="btn btn-primary">Guardar</button>
@@ -49,10 +49,10 @@
               <th> {{list.nombre}} </th>
               <td> <img src="{{list.foto}} " width="230" height="200" alt=""></td>
               <td> {{list.votos}} </td>
-              <td> 
+              <td>
                   <a (click)="editList(list)">
                       <i class="material-icons">edit</i>
-                  </a> 
+                  </a>
                   <a (click)="deleteList(list._id)">
                       <i class="material-icons">delete</i>
                   </a>

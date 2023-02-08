@@ -23,7 +23,7 @@ export class ListsComponent implements OnInit {
   addList(form: NgForm){
     if(form.value._id){
       this.listService.putList(form.value)
-        .subscribe(res =>{ 
+        .subscribe(res =>{
           this.resetForm(form)
           Swal.fire({
             position: 'center',

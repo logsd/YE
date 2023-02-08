@@ -8,4 +8,5 @@ router.get('/:id', listCtrl.getList);
 router.put('/:id', listCtrl.editList);
 router.delete('/:id', listCtrl.deleteList);
 
-module.exports = router;
+module.exports = router;    
+

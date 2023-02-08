@@ -11,14 +11,12 @@ export class AuthService {
   ) { }
 
   isLoggedIn() {
-    const token: any = localStorage.getItem('token'); // get token from local storage
+    const token: any = localStorage.getItem('ACCESS_TOKEN');
+/*
     if (!token) {
-      this.router.navigate(['/login']);
-    }
-    const payload = atob(token.split('.')[1]); // decode payload of token
-    const parsedPayload = JSON.parse(payload); // convert payload into an Object
-    console.log(payload);
-    return parsedPayload // check if token is expired
+      alert('Debe iniciar sesion ')
+    }*/
+    return token;
   }
 
 }

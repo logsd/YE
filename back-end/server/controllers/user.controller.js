@@ -32,6 +32,7 @@ userCtrl.createUser = async (req,res) => {
             nombre : user.nombre,
             email : user.email,
             rol: user.rol,
+            estado: user.estado,
             accessToken: accessToken,
             expiresIn: expiresIn
         }
@@ -88,6 +89,7 @@ User.findOne({email:userData.email}, (err, user)=>{
                 nombre : user.nombre,
                 email : user.email,
                 rol: user.rol,
+                estado: user.estado,
                 accessToken: accessToken,
                 expiresIn: expiresIn
             }

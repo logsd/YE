@@ -20,7 +20,7 @@ export class LoginService {
       (res:JwtResponseI)=>{
         if(res){
           // guardar token
-          this.saveToken(res.dataUser.accessToken, res.dataUser.expiresIn, res.dataUser.rol);
+          this.saveToken(res.dataUser.accessToken, res.dataUser.expiresIn, res.dataUser.rol, res.dataUser.estado);
         }
       }
      ))
@@ -32,8 +32,7 @@ export class LoginService {
       (res:JwtResponseI)=>{
         if(res){
           // guardar token
-          this.saveToken(res.dataUser.accessToken, res.dataUser.expiresIn, res.dataUser.rol);
-          console.log(JSON.stringify(res.dataUser.rol));
+          this.saveToken(res.dataUser.accessToken, res.dataUser.expiresIn, res.dataUser.rol, res.dataUser.estado);
           this.saveUser(res.dataUser._id);
         }
       }
@@ -46,16 +45,28 @@ export class LoginService {
     localStorage.removeItem("ACCESS_TOKEN");
     localStorage.removeItem("EXPIRES_IN");
     localStorage.removeItem("ROL");
+    localStorage.removeItem("User");
   }
 
-  private saveToken(token:string, expiresIn : string, rol: string):void{
+  private saveToken(token:string, expiresIn : string, rol: string, estado: any):void{
     localStorage.setItem("ACCESS_TOKEN", token);
     localStorage.setItem("EXPIRES_IN", expiresIn);
     localStorage.setItem("ROL", rol);
+    localStorage.setItem("STATE", estado);
     this.token = token;
   }
 
   saveUser(dataUser: any){
     localStorage.setItem("User", JSON.stringify(dataUser));
+  }
+
+  getUser(): any{
+    const state = localStorage.getItem('STATE');
+    const user = localStorage.getItem('User')
+    let a = {
+      user,
+      state
+    }
+    return a
   }
 }

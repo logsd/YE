@@ -1,8 +1,11 @@
-<div class="collapse" id="navbarToggleExternalContent">
+<header  id="admin4">
+<div  class="collapse" id="navbarToggleExternalContent">
     <div  class="bg-dark p-4">
-      <a id="usuarios" href="" routerLink="/users" >Usuarios</a>
+      <a id="admin1" href="" routerLink="/users" >Usuarios</a>
       <br>
-      <a id="list" href="" routerLink="/listas" >Listas</a>
+      <a id="admin2" href="" routerLink="/listas" >Listas</a>
+      <br>
+      <a id="admin3" href="" routerLink="/yaviElec" >Votacion</a>
       <br>
       <span class="text-muted">Toggleable via the navbar brand.</span>
     </div>
@@ -13,4 +16,6 @@
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
+    <button class="logOut btn btn-warning" (click)="logOut()">Cerrar Sesion</button>
   </nav>
+</header>

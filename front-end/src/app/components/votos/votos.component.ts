@@ -6,6 +6,8 @@ import {UserService} from '../../services/user.service'
 import { List } from 'src/app/models/list';
 import { ListService } from 'src/app/services/list.service';
 import Swal from 'sweetalert2';
+import { LoginService } from 'src/app/services/login.service';
+
 @Component({
   selector: 'app-votos',
   templateUrl: './votos.component.html',
@@ -13,7 +15,8 @@ import Swal from 'sweetalert2';
   providers: [ListService, UserService]
 })
 export class VotosComponent implements OnInit {
-  constructor(public listService: ListService, public userService:UserService) { }
+  constructor(public listService: ListService, public userService:UserService,
+     public _loginService: LoginService) { }
 
   ngOnInit(): void {
     this.storageUser()
@@ -23,7 +26,7 @@ export class VotosComponent implements OnInit {
   addList(form: any){
     if(form.value._id){
       this.listService.putList(form.value)
-        .subscribe(res =>{ 
+        .subscribe(res =>{
           this.resetForm(form)
           Swal.fire({
             position: 'center',
@@ -61,19 +64,21 @@ export class VotosComponent implements OnInit {
     }
   }
 
+
+
   votar(list: List){
+    const a = this._loginService.getUser();
+    a.state = 'true';
+
+
     list.votos ++;
     const lista = {
       _id: list._id,
-      nombre : list.nombre, 
+      nombre : list.nombre,
       descripcion : list.descripcion,
       foto: list.foto,
       votos : list.votos,
     }
-
-    
-
-
     Swal.fire({
       title: 'Estas seguro de votar por esta lista?',
       showDenyButton: true,
@@ -84,14 +89,16 @@ export class VotosComponent implements OnInit {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         this.listService.putList(lista)
-        .subscribe(res =>{ 
-      this.getLists()
+        .subscribe(res =>{
+        this.getLists()
     })
         Swal.fire('Usted a votado!', '', 'success')
       } else if (result.isDenied) {
         Swal.fire('Usted no a votado', '', 'info')
       }
     })
+
+    console.log(a);
   }
 
   getLists(){

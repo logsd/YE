@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth/auth.guard';
 import { RolGuard } from './auth/rol.guard';
+import { VoteGuard } from './auth/vote.guard';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ListsComponent } from './components/lists/lists.component';
 import { LoginComponent } from './components/login/login.component';
@@ -13,10 +14,10 @@ import { Role } from './models/role';
 const routes: Routes = [
   {path: '',redirectTo:'login' , pathMatch: 'full'},
   {path: 'listas', component: ListsComponent, canActivate:[RolGuard]},
-  {path: 'dashboard', component: DashboardComponent},
-  {path: 'yaviElec', component: VotosComponent},
+  {path: 'dashboard', component: DashboardComponent, canActivate:[RolGuard]},
+  {path: 'yaviElec', component: VotosComponent, canActivate:[AuthGuard , VoteGuard]},
   {path: 'login', component :LoginComponent},
-  {path: 'users', component :UsersComponent, canActivate:[RolGuard]},
+  {path: 'users', component :UsersComponent, /*canActivate:[RolGuard]*/},
   {path: '**', redirectTo: 'dashboard', pathMatch:'full'}
 ];
 

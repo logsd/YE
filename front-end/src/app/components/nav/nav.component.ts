@@ -25,13 +25,15 @@ export class NavComponent implements OnInit {
   }
 
   rol(){
-    const user: any = document.getElementById("usuarios");
-    const list: any = document.getElementById("list");
-
+    const admin1: any = document.getElementById("admin1");
+    const admin2: any = document.getElementById("admin2");
+    const admin3: any = document.getElementById("admin3");
+    const admin4: any = document.getElementById("admin4");
 
     if (this._rolService.rol() != 'ADMIN') {
-      list.style.display = 'none';
-      user.style.display = 'none';
+      admin1.style.display = 'none';
+      admin2.style.display = 'none';
+      admin3.style.display = 'none';
       //alert('No mostrar cosas de admin') // go to login if not authenticated
       return false;
     }
