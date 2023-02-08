@@ -17,7 +17,7 @@ const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
   {path: 'yaviElec', component: VotosComponent, canActivate:[AuthGuard , VoteGuard]},
   {path: 'login', component :LoginComponent},
-  {path: 'users', component :UsersComponent, /*canActivate:[RolGuard]*/},
+  {path: 'users', component :UsersComponent, canActivate:[RolGuard]},
   {path: '**', redirectTo: 'dashboard', pathMatch:'full'}
 ];
 

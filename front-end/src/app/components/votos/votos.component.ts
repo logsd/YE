@@ -7,6 +7,7 @@ import { List } from 'src/app/models/list';
 import { ListService } from 'src/app/services/list.service';
 import Swal from 'sweetalert2';
 import { LoginService } from 'src/app/services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-votos',
@@ -15,7 +16,7 @@ import { LoginService } from 'src/app/services/login.service';
   providers: [ListService, UserService]
 })
 export class VotosComponent implements OnInit {
-  constructor(public listService: ListService, public userService:UserService,
+  constructor(public listService: ListService, public userService:UserService,private router: Router,
      public _loginService: LoginService) { }
 
   ngOnInit(): void {
@@ -97,7 +98,7 @@ export class VotosComponent implements OnInit {
         Swal.fire('Usted no a votado', '', 'info')
       }
     })
-
+    this._loginService.logOut();
     console.log(a);
   }
 
